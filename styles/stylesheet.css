@@ -1,5 +1,5 @@
 body{
-    
+
 }
 .list-group{
     position: sticky; /* Supported in latest version of Chrome, Firefox, Safari, Opera and Edge browsers */
@@ -37,5 +37,13 @@ code {
 
 .table-head {
     margin-top: 0px;
-    position: fixed;
+    position: sticky;
+}
+
+.padd{
+    margin-top: 40px;
+}
+
+#top3 {
+    padding-bottom: 40px;
 }

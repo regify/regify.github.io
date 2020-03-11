@@ -1,5 +1,5 @@
 body{
-
+    word-break: break-word;
 }
 .list-group{
     position: sticky; /* Supported in latest version of Chrome, Firefox, Safari, Opera and Edge browsers */

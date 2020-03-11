@@ -1,0 +1,41 @@
+body{
+    
+}
+.list-group{
+    position: sticky; /* Supported in latest version of Chrome, Firefox, Safari, Opera and Edge browsers */
+    top: 120px;
+
+    font-size: 12pt;
+}
+
+.col-sm-9{
+     /* Supported in latest version of Chrome, Firefox, Safari, Opera and Edge browsers */
+    margin-top: 100px;
+}
+h2 {
+    padding-top: 70px;
+    margin-top: -70px;
+}
+.coding {
+    border-radius: 4px;
+    padding: 10px;
+    font-family: "Courier New";
+}
+.inline-code {
+    border-radius: 3px;
+    padding-top: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+
+
+    font-family: "Courier New";
+}
+
+code {
+    color: white;
+}
+
+.table-head {
+    margin-top: 0px;
+    position: fixed;
+}

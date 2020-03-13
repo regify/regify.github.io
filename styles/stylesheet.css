@@ -48,10 +48,23 @@ code {
     padding-bottom: 40px;
 }
 
+#jumbo-board {
+    margin: 20px;
+    width:90%;
+    box-shadow: 2px 2px 8px lightgrey;
+    background-image: url('img/bg.jpg');
+    background-size:cover;
+    color: lightgrey;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
 #info-board {
     margin: 20px;
     width:90%;
     box-shadow: 2px 2px 8px lightgrey;
+    border-radius: 5px;
+
 }
 
 #info-container {

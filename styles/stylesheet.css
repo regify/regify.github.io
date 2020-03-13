@@ -47,3 +47,18 @@ code {
 #top3 {
     padding-bottom: 40px;
 }
+
+#info-board {
+    margin: 20px;
+    width:90%;
+    box-shadow: 2px 2px 8px lightgrey;
+}
+
+#info-container {
+    display: flex;
+    justify-content: center;
+}
+
+#navbar {
+    background-color: #333;
+}

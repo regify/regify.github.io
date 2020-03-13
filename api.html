@@ -17,16 +17,13 @@
 
     <body data-spy="scroll" data-offset="15" data-target="#myScrollspy">
         <!-- header -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow " style="position:fixed; width:100%; z-index:1000;">
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-dark shadow " style="position:fixed; width:100%; z-index:1000;">
             <a class="navbar-brand" href="/">REgify</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Dashboard</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/api.html">API Documentation</a>
                     </li>
@@ -39,7 +36,7 @@
                 <div class="col-sm-3" id="myScrollspy">
                     <h2 class="table-head" >Content</h2>
                     <div class="list-group">
-                        <a class="list-group-item list-group-item-action active" href="#section1">Character Classes</a>
+                        <a class="list-group-item list-group-item-action" href="#section1">Character Classes</a>
                         <a class="list-group-item list-group-item-action" href="#section2">Matching Literal Text</a>
                         <a class="list-group-item list-group-item-action" href="#section3">Section Three</a>
                         <a class="list-group-item list-group-item-action" href="#section4">Section Four</a>
@@ -188,13 +185,12 @@
                         <p><h5>Usage</h5></p>
                         <div class="coding bg-dark ">
                             <code>
-                                REPEAT(IDENTIFIER_1, ...)
+                                INLINE @"[0-9]?.*$"
                             </code>
                         </div>
                         <p><h5>Description</h5></p>
                         <p>
-                            The API call "ANY" is basically an OR operation which takes variadic arguments, e.g you can supply any amount of arguments.
-                            It requires at least one argument.
+                            If you need to run some traditional regular expressions inside REgify, just put a keyword INLINE before a string, which will tell REgify to just place whatever are written inside of it into the final pattern. This should only be done when necessary since there are no debugging or syntax highlighting available for this.
                         </p>
                     </div>
         		</div>
@@ -202,4 +198,51 @@
         </div>
     </div>
     </body>
+    <!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center">
+      <li class="list-inline-item">
+        <a class="btn-floating btn-fb mx-1">
+          <i class="fab fa-facebook-f"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-tw mx-1">
+          <i class="fab fa-twitter"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1">
+          <i class="fab fa-google-plus-g"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1">
+          <i class="fab fa-linkedin-in"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-dribbble mx-1">
+          <i class="fab fa-dribbble"> </i>
+        </a>
+      </li>
+    </ul>
+    <!-- Social buttons -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://regify.github.io"> Adam Andersson & Ludwig Hansson</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 </html>

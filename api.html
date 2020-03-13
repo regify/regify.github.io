@@ -42,18 +42,21 @@
                 <div class="col-sm-3" id="myScrollspy">
                     <h2 class="table-head" >Content</h2>
                     <div class="list-group">
-                        <a class="list-group-item list-group-item-action" href="#section1">Character Classes</a>
-                        <a class="list-group-item list-group-item-action" href="#section2">Matching Literal Text</a>
-                        <a class="list-group-item list-group-item-action" href="#section3">Section Three</a>
-                        <a class="list-group-item list-group-item-action" href="#section4">Section Four</a>
-                        <a class="list-group-item list-group-item-action" href="#section5">Section Five</a>
-                        <a class="list-group-item list-group-item-action" href="#section6">Run legacy regex in REgify</a>
+                        <a class="list-group-item list-group-item-action" href="#section1">VARCHAR</a>
+                        <a class="list-group-item list-group-item-action" href="#section2">Literal Text</a>
+                        <a class="list-group-item list-group-item-action" href="#section3">ANY</a>
+                        <a class="list-group-item list-group-item-action" href="#section4">REPEAT</a>
+                        <a class="list-group-item list-group-item-action" href="#section5">GROUP</a>
+                        <a class="list-group-item list-group-item-action" href="#section6">INLINE</a>
+                        <a class="list-group-item list-group-item-action" href="#section7">OR</a>
+                        <a class="list-group-item list-group-item-action" href="#section8">START</a>
+                        <a class="list-group-item list-group-item-action" href="#section9">END</a>
 
                     </div>
                 </div>
                 <div class="col-sm-9">
                     <div id="section1">
-                        <h2>Character classes</h2>
+                        <h2>VARCHAR</h2>
                         <p><h5>Usage</h5></p>
                         <div class="coding bg-dark ">
                             <code>VARCHAR("PATTERN", EXACT_AMOUNT_CHARACTERS)
@@ -163,29 +166,42 @@
                         <p><h5>Usage</h5></p>
                         <div class="coding bg-dark ">
                             <code>
-                                REPEAT(IDENTIFIER_1, ...)
+                                REPEAT(NR_OF_DUPLICATES, IDENTIFIER_1, ...)
                             </code>
                         </div>
                         <p><h5>Description</h5></p>
                         <p>
-                            The API call "ANY" is basically an OR operation which takes variadic arguments, e.g you can supply any amount of arguments.
-                            It requires at least one argument.
+                            If you have a repetitive pattern, REPEAT can be used to create N amount of exact copies of the patterns provided.
+                            It needs two or more arguments, where the first parameter is the N amount of repetitions to do, and the rest are patterns to repeat.
                         </p>
                     </div>
+                    <hr>
                     <div id="section5">
                         <h2>GROUP</h2>
                         <p><h5>Usage</h5></p>
                         <div class="coding bg-dark ">
                             <code>
-                                REPEAT(IDENTIFIER_1, ...)
+                                GROUP(IDENTIFIER_1, ...)
                             </code>
                         </div>
                         <p><h5>Description</h5></p>
                         <p>
-                            The API call "ANY" is basically an OR operation which takes variadic arguments, e.g you can supply any amount of arguments.
-                            It requires at least one argument.
+                            GROUP is being used in order to combine patterns in order to make one large pattern that can be used inside a function like ANY, REPEAT or when using the OR keyword.
+                            GROUP takes from 1 to N amount of arguments which are separated by a comma.
                         </p>
+                        <strong>Creating a GROUP</strong>
+                        <p>A lot of times you have to match patterns where you don't know the upper limit, then you can provide an asterix
+                            <span class="inline-code bg-dark "><code>*</code></span>
+                            as the second argument, e.g. if you want to match all patterns with
+                            <span class="inline-code bg-dark "><code>"A-Z"</code></span>
+                            that contains of "two or more" characters, you do this by writing
+                        </p>
+                        <div class="coding bg-dark ">
+                            <code>VARCHAR("A-Z", 2, *)</code>
+                        </div>
+                        <br>
                     </div>
+                    <hr>
                     <div id="section6">
                         <h2>INLINE</h2>
                         <p><h5>Usage</h5></p>
@@ -198,7 +214,71 @@
                         <p>
                             If you need to run some traditional regular expressions inside REgify, just put a keyword INLINE before a string, which will tell REgify to just place whatever are written inside of it into the final pattern. This should only be done when necessary since there are no debugging or syntax highlighting available for this.
                         </p>
+
                     </div>
+                    <hr>
+                    <div id="section7">
+                        <h2>OR</h2>
+                        <p><h5>Usage</h5></p>
+                        <div class="coding bg-dark ">
+                            <code>
+                                @"LEFT_PARAM" OR @"RIGHT_PARAM"
+                            </code>
+                        </div>
+                        <p><h5>Description</h5></p>
+                        <p>
+                            This can be used to do an OR operation between two patterns. If you want to do an OR operation between two chained patterns, e.g. @”->” VARCHAR(“A-F”, 3) and ANY(@”John”, @”Peter”) @”(/)”, you should put them in groups, otherwise it will only take the nearest function on the left and right sides (in this case the OR would only take VARCHAR and ANY into consideration)
+                        </p>
+
+                    </div>
+                    <hr>
+                    <div id="section8">
+                        <h2>START</h2>
+                        <p><h5>Usage</h5></p>
+                        <div class="coding bg-dark ">
+                            <code>
+                                START
+                            </code>
+                        </div>
+                        <p><h5>Description</h5></p>
+                        <p>
+                            Sometimes you need to specify that a pattern always will be in the beginning of a line, then you can use the keyword START to let RE know that the pattern you are trying to match always is in the beginning of the line.
+                            <br>
+                            <br>
+
+                            NOTE! This keyword should only be placed in the beginning of a regular expression, e.g:
+                            <div class="coding bg-dark ">
+                                <code>
+                                    START @”some_text”
+                                </code>
+                            </div>
+                            <br>
+
+                            NOT like this:
+
+                            <div class="coding bg-dark ">
+                                <code>
+                                    VARCHAR(“A-Z”, 1, 7) START @”some_text”
+                                </code>
+                            </div>
+                        </p>
+
+                    </div>
+                    <hr>
+                    <div id="section9">
+                        <h2>END</h2>
+                        <p><h5>Usage</h5></p>
+                        <div class="coding bg-dark ">
+                            <code>
+                                END
+                            </code>
+                        </div>
+                        <p><h5>Description</h5></p>
+                        <p>
+                            If you need to run some traditional regular expressions inside REgify, just put a keyword INLINE before a string, which will tell REgify to just place whatever are written inside of it into the final pattern. This should only be done when necessary since there are no debugging or syntax highlighting available for this.
+                        </p>
+                    </div>
+                    <hr>
         		</div>
             </div>
         </div>

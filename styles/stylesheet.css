@@ -76,13 +76,13 @@ code {
     background-color: #333;
 }
 
-<<<<<<< Updated upstream
-#dip {
+#imgs {
+    width: 70%;
     max-width: 500px;
     height: auto;
+    box-shadow: 4px 4px 8px lightgrey;
+
 }
-=======
 .footer-copyright {
     margin-bottom: 20px;
 }
->>>>>>> Stashed changes

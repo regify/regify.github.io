@@ -83,11 +83,14 @@ code {
     box-shadow: 4px 4px 8px lightgrey;
 
 }
-.footer-copyright {
-    margin-bottom: 20px;
-}
 
 .list-group-item.active {
     background-color:  #333;
     border-color: #333;
+}
+
+.page-footer {
+    padding-top: 40px;
+    padding-bottom: 20px;
+
 }

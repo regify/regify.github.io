@@ -275,7 +275,16 @@
                         </div>
                         <p><h5>Description</h5></p>
                         <p>
-                            If you need to run some traditional regular expressions inside REgify, just put a keyword INLINE before a string, which will tell REgify to just place whatever are written inside of it into the final pattern. This should only be done when necessary since there are no debugging or syntax highlighting available for this.
+							In case you want to match the end of the string or just before the newline at the end of a string. END is the keyword you want to use.
+							For example:
+							<code>
+								@"foo"
+							</code>
+							matches both 'foo' and 'foobar' while
+							<code>
+								@"foo" END
+							</code>
+							matches only 'foo'.
                         </p>
                     </div>
                     <hr>

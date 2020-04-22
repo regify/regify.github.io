@@ -51,6 +51,7 @@
                         <a class="list-group-item list-group-item-action" href="#section7">OR</a>
                         <a class="list-group-item list-group-item-action" href="#section8">START</a>
                         <a class="list-group-item list-group-item-action" href="#section9">END</a>
+                        <a class="list-group-item list-group-item-action" href="#section10">UNTIL</a>
 
                     </div>
                 </div>
@@ -290,6 +291,27 @@
 								</code>
 							</div>
 							only matches 'foo'.
+                        </p>
+                    </div>
+                    <hr>
+                    <div id="section10">
+                        <h2>UNTIL</h2>
+                        <p><h5>Usage</h5></p>
+                        <div class="coding bg-dark ">
+                            <code>
+                                UNTIL
+                            </code>
+                        </div>
+                        <p><h5>Description</h5></p>
+                        <p>
+                            In case you want to match anything until e.g, a specific word this keyword could be used.<br>
+                            <b>Note: </b>Since the keyword is greedy it will match anything until the last occurrence of the word.
+							<div class="coding bg-dark">
+								<code>
+									UNTIL @"foo"
+								</code>
+							</div>
+                            matches everything until the last occurrence of "foo".<br>
                         </p>
                     </div>
                     <hr>
